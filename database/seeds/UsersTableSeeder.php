@@ -20,12 +20,12 @@ class UsersTableSeeder extends Seeder
         if(count($user) <= 0 ){
             $roles = Role::all();
 
-            factory(User::class)->updateOrCreate([
+            factory(User::class)->create([
                 'role_id' => $roles[0]->id,
                 'email' => $emails[0]
             ]);
 
-            factory(User::class)->updateOrCreate([
+            factory(User::class)->create([
                 'role_id' => $roles[0]->id,
                 'email' => $emails[1]
             ]);
