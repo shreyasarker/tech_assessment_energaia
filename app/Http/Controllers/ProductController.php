@@ -47,4 +47,11 @@ class ProductController extends Controller
         return view('products.received', $data);
     }
 
+    public function receivedOrderForSupplier(){
+        $data['title'] = 'Received Orders';
+
+        $data['list'] = Product::getOrdered()->orderBy('id', 'desc')->paginate(10);
+
+        return view('products.ordered', $data);
+    }
 }

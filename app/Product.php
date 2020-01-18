@@ -17,4 +17,8 @@ class Product extends Model
     public function scopeGetReceived(Builder $builder){
         return $builder->where('status', 1);
     }
+
+    public function scopeGetOrdered(Builder $builder){
+        return $builder->where('status', 0);
+    }
 }
