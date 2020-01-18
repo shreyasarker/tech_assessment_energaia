@@ -14,6 +14,6 @@ class ProductTest extends TestCase
 
         $response = $this->get('/admin/products/order');
 
-        $response->assertSee('product');
+        $response->assertViewIs('products.order');
     }
 }
