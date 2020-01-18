@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -9,6 +10,9 @@ class ProductController extends Controller
 {
     public function showOrderPage(){
         $data['title'] = 'Order Product';
+
+        $data['suppliers'] = User::getSupplier()->get();
+        $data['units'] = config('enums.quantity_units');
 
         return view('products.order', $data);
     }

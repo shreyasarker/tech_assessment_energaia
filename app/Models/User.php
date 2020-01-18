@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -47,5 +48,9 @@ class User extends Authenticatable
 
     public function isSupplier(){
         return $this->role->title == 'supplier';
+    }
+
+    public function scopeGetSupplier(Builder $builder){
+        $builder->where('role_id', 2);
     }
 }

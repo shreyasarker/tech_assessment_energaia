@@ -67,7 +67,10 @@
                                 <div class="col-md-6">
 
                                     <select class="form-control" name="quantity_unit" id="quantity_unit" required>
-                                        <option value=""></option>
+                                        <option value="">Select Unit</option>
+                                        @foreach($units as $unit)
+                                            <option value="{{ old('quantity_unit') ?? $unit }}">Unit-({{ $unit }})</option>
+                                        @endforeach
                                     </select>
 
                                     @isset($errors)
@@ -102,7 +105,10 @@
                                 <div class="col-md-6">
 
                                     <select class="form-control" name="supplier_id" id="supplier_id" required>
-                                        <option value=""></option>
+                                        <option value="">Select Supplier</option>
+                                        @foreach($suppliers as $supplier)
+                                            <option value="{{ old('supplier_id') ?? $supplier->id }}">{{ $supplier->name }}</option>
+                                        @endforeach
                                     </select>
 
                                     @isset($errors)
