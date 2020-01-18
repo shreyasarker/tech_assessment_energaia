@@ -16,7 +16,7 @@ Route::post('/login', 'AuthController@login')->name('login');
 Route::get('/logout', 'AuthController@logout')->name('logout');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], function (){
-    Route::get('/home', 'HomeController@index')->name('home');
+    @include 'admin.php';
 });
 
 Route::group(['prefix' => 'supplier', 'as' => 'supplier.', 'middleware' => 'supplier'], function (){
