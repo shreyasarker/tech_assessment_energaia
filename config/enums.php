@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'enums.quantity_units' => ['pcs', 'kg', 'l']
+    'quantity_units' => ['pcs', 'kg', 'l']
 ];
