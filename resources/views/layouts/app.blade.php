@@ -31,9 +31,13 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-
-            </ul>
+            @auth
+                @admin
+                    @include('layouts._nav_admin')
+                @else
+                    @include('layouts._nav_supplier')
+                @endadmin
+            @endauth
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
