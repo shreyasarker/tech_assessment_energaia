@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
@@ -18,7 +20,7 @@ class ProductController extends Controller
     }
 
     public function order(Request $request){
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'sku' => 'required',
             'name' => 'required',
             'quantity' => 'required|numeric',
@@ -26,5 +28,14 @@ class ProductController extends Controller
             'rate' => 'required|numeric',
             'supplier_id' => 'required|numeric',
         ]);
+
+        if($validator->fails()){
+            return redirect()->back()->withInput()->withErrors($validator->errors());
+        }
+
+        Product::create($request->all());
+
+        Session::flash('success', 'Order has been placed successfully!');
+        return redirect()->route('admin.products.showOrderPage');
     }
 }

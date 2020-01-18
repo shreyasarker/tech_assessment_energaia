@@ -19,6 +19,6 @@ class SupplierMiddleware
         if(Auth::check() && Auth::user()->isSupplier()){
             return $next($request);
         }
-        return request('/');
+        return redirect('/');
     }
 }
