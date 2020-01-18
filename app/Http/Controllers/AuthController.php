@@ -9,6 +9,11 @@ class AuthController extends Controller
 {
     public function showLoginForm(){
         $data['title'] = 'Login';
+
+        if(Auth::check() && Auth::user()->isAdmin()){
+            return redirect()->route('admin.home');
+        }
+
         return view('login', $data);
     }
 
@@ -30,7 +35,7 @@ class AuthController extends Controller
         }
         return redirect('/');
     }
-    
+
     public function logout(){
         Auth::logout();
         return redirect('/');
