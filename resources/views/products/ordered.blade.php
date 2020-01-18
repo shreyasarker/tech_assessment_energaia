@@ -50,7 +50,7 @@
                                 @endforeach
                             @else
                                 <tr class="alert-warning">
-                                    <td colspan="6" class="text-center">No information found</td>
+                                    <td colspan="7" class="text-center">No information found</td>
                                 </tr>
                             @endif
                             </tbody>
