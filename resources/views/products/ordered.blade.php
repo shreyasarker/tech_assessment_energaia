@@ -16,7 +16,7 @@
 
                         @if(Session::has('success'))
                             <div class="alert alert-success">
-                                <strong>Success!</strong> {{Session::get('success')}}
+                                {{Session::get('success')}}
                             </div>
                         @endif
 
@@ -45,7 +45,7 @@
                                         <td>{{ $value->quantity }} ({{ $value->quantity_unit }})</td>
                                         <td>{{ $value->rate }}</td>
                                         <td>{{ $value->supplier->name }}</td>
-                                        <td><a href="" class="btn btn-sm btn-success">Send to Company</a></td>
+                                        <td><a href="{{ route('supplier.products.send', $value->id) }}" class="btn btn-sm btn-success">Send to Company</a></td>
                                     </tr>
                                 @endforeach
                             @else

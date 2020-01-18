@@ -54,4 +54,14 @@ class ProductController extends Controller
 
         return view('products.ordered', $data);
     }
+
+    public function sendProductToAdmin($id){
+
+        $product = Product::findOrFail($id);
+        $product->status = 1;
+        $product->save();
+
+        Session::flash('success', 'Product has been sent successfully!');
+        return redirect()->route('supplier.products.orders');
+    }
 }
