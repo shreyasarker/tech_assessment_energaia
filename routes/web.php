@@ -20,6 +20,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], f
 });
 
 Route::group(['prefix' => 'supplier', 'as' => 'supplier.', 'middleware' => 'supplier'], function (){
-    Route::get('/home', 'HomeController@index')->name('home');
+    @include 'supplier.php';
 });
 

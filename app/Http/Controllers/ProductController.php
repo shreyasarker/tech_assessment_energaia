@@ -39,11 +39,12 @@ class ProductController extends Controller
         return redirect()->route('admin.products.showOrderPage');
     }
 
-    public function received(){
+    public function receivedOrderForAdmin(){
         $data['title'] = 'Received Products';
 
         $data['list'] = Product::getReceived()->orderBy('id', 'desc')->paginate(10);
 
         return view('products.received', $data);
     }
+    
 }
