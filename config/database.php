@@ -33,6 +33,11 @@ return [
     |
     */
 
+    'mysql_testing' => [
+        'driver'   => 'mysql',
+        'database' => ':memory:',
+        'prefix'   => '',
+    ],
     'connections' => [
 
         'sqlite' => [
