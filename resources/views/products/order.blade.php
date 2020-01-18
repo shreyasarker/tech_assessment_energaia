@@ -10,20 +10,22 @@
                     <div class="card-header">{{ $title }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="">
+                        <form method="POST" action="{{ route('admin.products.order') }}">
                             @csrf
 
                             <div class="form-group row">
                                 <label for="sku" class="col-md-4 col-form-label text-md-right">SKU</label>
 
                                 <div class="col-md-6">
-                                    <input id="sku" type="text" class="form-control @error('sku') is-invalid @enderror" name="sku" value="{{ old('sku') }}" required autocomplete="sku" autofocus>
+                                    <input id="sku" type="text" class="form-control" name="sku" value="{{ old('sku') }}" required autocomplete="sku" autofocus>
 
-                                    @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                    @isset($errors)
+                                        @error('sku')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    @endisset
                                 </div>
                             </div>
 
@@ -31,13 +33,15 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">Product Name</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="sku" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <input id="name" type="text" class="form-control" name="sku" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                                    @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                    @isset($errors)
+                                        @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    @endisset
                                 </div>
                             </div>
 
@@ -45,13 +49,15 @@
                                 <label for="quantity" class="col-md-4 col-form-label text-md-right">Quantity</label>
 
                                 <div class="col-md-6">
-                                    <input id="quantity" type="number" class="form-control @error('quantity') is-invalid @enderror" name="quantity" value="{{ old('quantity') }}" required autocomplete="quantity" autofocus>
+                                    <input id="quantity" type="number" class="form-control" value="{{ old('quantity') }}" required autocomplete="quantity" autofocus>
 
-                                    @error('quantity')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                    @isset($errors)
+                                        @error('quantity')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    @endisset
                                 </div>
                             </div>
 
@@ -60,15 +66,17 @@
 
                                 <div class="col-md-6">
 
-                                    <select class="form-control @error('quantity_unit') is-invalid @enderror" name="quantity_unit" id="quantity_unit" required>
+                                    <select class="form-control" name="quantity_unit" id="quantity_unit" required>
                                         <option value=""></option>
                                     </select>
 
-                                    @error('quantity_unit')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                    @isset($errors)
+                                        @error('quantity_unit')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    @endisset
                                 </div>
                             </div>
 
@@ -76,13 +84,15 @@
                                 <label for="rate" class="col-md-4 col-form-label text-md-right">Rate (Price per item)</label>
 
                                 <div class="col-md-6">
-                                    <input id="rate" type="number" class="form-control @error('rate') is-invalid @enderror" name="rate" value="{{ old('rate') }}" required autocomplete="rate" autofocus>
+                                    <input id="rate" type="number" class="form-control" name="rate" value="{{ old('rate') }}" required autocomplete="rate" autofocus>
 
-                                    @error('rate')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                    @isset($errors)
+                                        @error('rate')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    @endisset
                                 </div>
                             </div>
 
@@ -91,15 +101,17 @@
 
                                 <div class="col-md-6">
 
-                                    <select class="form-control @error('supplier_id') is-invalid @enderror" name="supplier_id" id="supplier_id" required>
+                                    <select class="form-control" name="supplier_id" id="supplier_id" required>
                                         <option value=""></option>
                                     </select>
 
-                                    @error('supplier_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                    @isset($errors)
+                                        @error('supplier_id')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    @endisset
                                 </div>
                             </div>
 

@@ -2,18 +2,18 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;
 
 class ProductTest extends TestCase
 {
+    use WithoutMiddleware;
+
     public function testOrderProductPage(){
         $this->withoutExceptionHandling();
-        $this->withoutMiddleware();
 
         $response = $this->get('/admin/products/order');
 
-        $response->assertViewIs('products.order');
+        $response->assertSee('product');
     }
 }
