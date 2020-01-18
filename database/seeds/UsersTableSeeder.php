@@ -26,7 +26,7 @@ class UsersTableSeeder extends Seeder
             ]);
 
             factory(User::class)->create([
-                'role_id' => $roles[0]->id,
+                'role_id' => $roles[1]->id,
                 'email' => $emails[1]
             ]);
         }
