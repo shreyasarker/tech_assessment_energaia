@@ -34,9 +34,10 @@
                                     <tr>
                                         <td>{{ $index++ }}</td>
                                         <td>{{ $value->sku }}</td>
+                                        <td>{{ $value->name }}</td>
                                         <td>{{ $value->quantity }} ({{ $value->quantity_unit }})</td>
                                         <td>{{ $value->rate }}</td>
-                                        <td>{{ $value->supplier_id }}</td>
+                                        <td>{{ $value->supplier->name }}</td>
                                     </tr>
                                 @endforeach
                             @else
