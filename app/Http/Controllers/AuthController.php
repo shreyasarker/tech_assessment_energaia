@@ -12,6 +12,9 @@ class AuthController extends Controller
 
         if(Auth::check() && Auth::user()->isAdmin()){
             return redirect()->route('admin.home');
+
+        }elseif (Auth::check() && Auth::user()->isSupplier()){
+            return redirect()->route('supplier.home');
         }
 
         return view('login', $data);
@@ -31,6 +34,9 @@ class AuthController extends Controller
 
             if($user->isAdmin()){
                 return redirect()->route('admin.home');
+
+            }elseif(Auth::user()->isSupplier()){
+                return redirect()->route('supplier.home');
             }
         }
         return redirect('/');

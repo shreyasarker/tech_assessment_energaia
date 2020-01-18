@@ -19,3 +19,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], f
     Route::get('/home', 'HomeController@index')->name('home');
 });
 
+Route::group(['prefix' => 'supplier', 'as' => 'supplier.', 'middleware' => 'supplier'], function (){
+    Route::get('/home', 'HomeController@index')->name('home');
+});
+

@@ -27,13 +27,32 @@ class AuthTest extends TestCase
             'password' => 'password',
         ]);
 
-        $user = User::where('email',$email)->first();
+        $user = User::where('email', $email)->first();
 
         $this->assertNotNull($user);
         $this->assertAuthenticatedAs($user);
         $this->assertNotFalse($user->isAdmin());
 
         $response->assertRedirect(route('admin.home'));
+    }
+
+    public function testSupplierLogin(){
+        $this->withoutExceptionHandling();
+
+        $email = 'supplier@email.com';
+
+        $response = $this->post(route('login'), [
+            'email' => $email,
+            'password' => 'password',
+        ]);
+
+        $user = User::where('email', $email)->first();
+
+        $this->assertNotNull($user);
+        $this->assertAuthenticatedAs($user);
+        $this->assertNotFalse($user->isSupplier());
+
+        $response->assertRedirect(route('supplier.home'));
     }
 
     public function testLogout(){

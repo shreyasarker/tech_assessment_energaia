@@ -44,4 +44,8 @@ class User extends Authenticatable
     public function isAdmin(){
         return $this->role->title == 'admin';
     }
+
+    public function isSupplier(){
+        return $this->role->title == 'supplier';
+    }
 }

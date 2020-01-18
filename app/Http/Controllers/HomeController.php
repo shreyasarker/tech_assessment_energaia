@@ -13,7 +13,8 @@ class HomeController extends Controller
 
         if(Auth::user()->isAdmin()){
             $data['title'] = 'Admin Dashboard';
-
+        }else{
+            $data['title'] = 'Supplier Dashboard';
         }
 
         return view('home', $data);
