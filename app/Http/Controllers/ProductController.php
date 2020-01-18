@@ -38,4 +38,12 @@ class ProductController extends Controller
         Session::flash('success', 'Order has been placed successfully!');
         return redirect()->route('admin.products.showOrderPage');
     }
+
+    public function received(){
+        $data['title'] = 'Received Products';
+
+        $data['list'] = Product::getReceived()->orderBy('id', 'desc')->paginate(10);
+
+        return view('products.received', $data);
+    }
 }

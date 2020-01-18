@@ -3,6 +3,6 @@
         <a href="{{ route('admin.products.showOrderPage') }}" class="nav-link">Order Product</a>
     </li>
     <li class="nav-item">
-        <a href="" class="nav-link">Received Products</a>
+        <a href="{{ route('admin.products.received') }}" class="nav-link">Received Products</a>
     </li>
 </ul>
