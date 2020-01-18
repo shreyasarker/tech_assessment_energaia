@@ -6,3 +6,19 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+body{
+    font-size: 0.91rem;
+    color: #303233d6;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: #17151596;
+    font-weight: 600;
+}
+.navbar-light .navbar-brand {
+    color: rgba(0, 0, 0, 0.55);
+    font-weight: 600;
+}
+.navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
+    color: rgba(0, 0, 0, 0.55);
+}
