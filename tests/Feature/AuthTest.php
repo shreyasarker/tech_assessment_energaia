@@ -35,4 +35,12 @@ class AuthTest extends TestCase
 
         $response->assertRedirect(route('admin.home'));
     }
+
+    public function testLogout(){
+        $this->withoutExceptionHandling();
+
+        $response = $this->get('/logout');
+
+        $response->assertRedirect('/');
+    }
 }
